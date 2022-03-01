@@ -8,7 +8,7 @@ const Navigation = () => {
           <Link href={"home"}>Home</Link>
         </li>
         <li>
-          <Link href={"pokemonList"}>Pokemon list</Link>
+          <Link href={"PokemonList"}>Pokemon list</Link>
         </li>
       </ul>
     </>
