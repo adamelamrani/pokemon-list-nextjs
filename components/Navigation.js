@@ -13,6 +13,12 @@ const Navigation = () => {
         <li>
           <Link href={"PersonalList"}>Pokemon list SSR</Link>
         </li>
+        <li>
+          <Link href={"PersonalListSSG"}>Pokemon list SSG</Link>
+        </li>
+        <li>
+          <Link href={"PersonalListISR"}>Pokemon list ISR</Link>
+        </li>
       </ul>
     </>
   );
