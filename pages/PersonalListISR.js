@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-const PersonalList = ({ pokeList }) => {
+const PersonalListISR = ({ pokeList }) => {
   return (
     <>
       <ul>
@@ -10,7 +10,7 @@ const PersonalList = ({ pokeList }) => {
                 <img
                   height="100px"
                   width="100px"
-                  src={pokemon.sprites.other.dream_world.front_default}
+                  src={pokemon.sprites.other["official-artwork"].front_default}
                   alt={`Image of ${pokemon.name}`}
                 />
                 <li>Name: {pokemon.name}</li>
@@ -33,7 +33,10 @@ export const getStaticProps = async () => {
   });
 
   const pokeList = await Promise.all(imgData);
-  return { props: { pokeList } };
+  return {
+    props: { pokeList },
+    revalidate: 20,
+  };
 };
 
-export default PersonalList;
+export default PersonalListISR;
