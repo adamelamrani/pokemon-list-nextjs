@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
+import Layout from "./Layout";
 const PokemonList = () => {
   const [pokemons, setPokemon] = useState([]);
   useEffect(
@@ -21,24 +22,26 @@ const PokemonList = () => {
   console.log(pokemons);
   return (
     <>
-      <ul>
-        {pokemons &&
-          pokemons.map((pokemon) => (
-            <>
-              <li>
-                <ul>
-                  <img
-                    height="100px"
-                    width="100px"
-                    src={pokemon.sprites.other.dream_world.front_default}
-                    alt={`Image of ${pokemon.name}`}
-                  />
-                  <li>Name: {pokemon.name}</li>
-                </ul>
-              </li>
-            </>
-          ))}
-      </ul>
+      <Layout>
+        <ul>
+          {pokemons &&
+            pokemons.map((pokemon) => (
+              <>
+                <li>
+                  <ul>
+                    <img
+                      height="100px"
+                      width="100px"
+                      src={pokemon.sprites.other.dream_world.front_default}
+                      alt={`Image of ${pokemon.name}`}
+                    />
+                    <li>Name: {pokemon.name}</li>
+                  </ul>
+                </li>
+              </>
+            ))}
+        </ul>
+      </Layout>
     </>
   );
 };
