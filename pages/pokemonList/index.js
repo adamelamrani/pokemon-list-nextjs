@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
+import StyledList from "../../components/Styles/StyledList";
 const PokemonList = () => {
   const [pokemons, setPokemon] = useState([]);
   useEffect(
@@ -19,24 +20,24 @@ const PokemonList = () => {
   );
   return (
     <>
-      <ul>
+      <StyledList>
         {pokemons &&
           pokemons.map((pokemon) => (
             <>
-              <li>
-                <ul>
+              <li key={pokemon.id} onClick>
+                <div>
                   <img
                     height="100px"
                     width="100px"
                     src={pokemon.sprites.other.dream_world.front_default}
                     alt={`Image of ${pokemon.name}`}
                   />
-                  <li>Name: {pokemon.name}</li>
-                </ul>
+                  <p>{pokemon.name}</p>
+                </div>
               </li>
             </>
           ))}
-      </ul>
+      </StyledList>
     </>
   );
 };

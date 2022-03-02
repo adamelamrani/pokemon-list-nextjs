@@ -1,29 +1,31 @@
+import StyledList from "../../components/Styles/StyledList";
+
 /* eslint-disable @next/next/no-img-element */
-const PersonalListSSG = ({ pokeList }) => {
+const PersonalListISR = ({ pokeList }) => {
   return (
     <>
-      <ul>
+      <StyledList>
         {pokeList.map((pokemon) => (
           <>
-            <li>
-              <ul>
+            <li key={pokemon.id}>
+              <div>
                 <img
-                  height="100px"
-                  width="100px"
-                  src={pokemon.sprites.other.home.front_default}
+                  height="70px"
+                  width="70px"
+                  src={pokemon.sprites.other.dream_world.front_default}
                   alt={`Image of ${pokemon.name}`}
                 />
-                <li>Name: {pokemon.name}</li>
-              </ul>
+                <p>{pokemon.name}</p>
+              </div>
             </li>
           </>
         ))}
-      </ul>
+      </StyledList>
     </>
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const response = await fetch(process.env.NEXT_PUBLIC_PRIVATE_API);
   const pokemons = await response.json();
   const imgData = pokemons.map(async (pokemonStats) => {
@@ -33,7 +35,10 @@ export const getServerSideProps = async () => {
   });
 
   const pokeList = await Promise.all(imgData);
-  return { props: { pokeList } };
+  return {
+    props: { pokeList },
+    revalidate: 20,
+  };
 };
 
-export default PersonalListSSG;
+export default PersonalListISR;
