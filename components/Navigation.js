@@ -1,26 +1,27 @@
 import Link from "next/link";
+import NavigationStyle from "./Styles/NavigationStyle";
 
 const Navigation = () => {
   return (
-    <>
+    <NavigationStyle>
       <ul>
         <li>
-          <Link href={"home"}>Home</Link>
+          <Link href={"/home"}>Home</Link>
         </li>
         <li>
-          <Link href={"PokemonList"}>Pokemon list CSR</Link>
+          <Link href={"/pokemonList"}>Pokemon list CSR</Link>
         </li>
         <li>
-          <Link href={"PersonalList"}>Pokemon list SSR</Link>
+          <Link href={"/personalList"}>Pokemon list SSR</Link>
         </li>
         <li>
-          <Link href={"PersonalListSSG"}>Pokemon list SSG</Link>
+          <Link href={"/personalListSSG"}>Pokemon list SSG</Link>
         </li>
         <li>
-          <Link href={"PersonalListISR"}>Pokemon list ISR</Link>
+          <Link href={"/personalListISR"}>Pokemon list ISR</Link>
         </li>
       </ul>
-    </>
+    </NavigationStyle>
   );
 };
 
